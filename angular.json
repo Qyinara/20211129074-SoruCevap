@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/bootstrap.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sorucevapfirebase"
+    }
+  },
+  "defaultProject": "sorucevapfirebase",
+  "cli": {
+    "analytics": "af2f0881-ddb0-4585-9c13-e3f2f4446a11"
+  }
 }

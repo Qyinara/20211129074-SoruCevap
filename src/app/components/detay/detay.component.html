@@ -1,0 +1,63 @@
+<div class="container mt-5">
+
+<div class="row">
+    <div class="container-fluid mt-100">
+
+        <div class="card mb-3">
+            <div class="card-header pl-0 pr-0">
+     
+            </div>
+            <div class="card-body py-3">
+                <div class="row no-gutters align-items-center">
+                    <div class="col"> <h2 class="text-big" data-abc="true">{{secKayit.baslik}}</h2>
+                        <h4>{{secKayit.icerik}}</h4>
+                        <div class="text-muted small mt-1">{{secKayit.kayTarih | date:'dd.MM.yyyy HH:mm'}}</div>
+                    </div>
+                    <div class="d-none d-md-block col-4">
+                        <div class="row no-gutters align-items-center">
+                            
+                            <div class="media col-6 align-items-center"> <img src="assets/images.png" width="60" height="60" alt="" class="d-block ui-w-30 rounded-circle">
+                                <div class="media-body flex-truncate ml-2">
+                                    <div class="line-height-1 text-truncate"></div> <a href="javascript:void(0)" class="text-muted small text-truncate" data-abc="true">Erol Aydemir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+
+
+<br><br>
+<hr> 
+    <div class="card" *ngFor="let kayit2 of kayitlar2">
+        
+        <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="user d-flex flex-row align-items-center"> <img src="assets/images.png" width="30" class="user-img rounded-circle mr-2"> <span><small class="font-weight-bold text-primary">Erol Aydemir: </small> <small class="font-weight-bold">{{kayit2.icerik2}}</small></span> </div> <small>{{secKayit.kayTarih | date:'dd.MM.yyyy HH:mm'}}</small>
+            </div>
+            <div class="action d-flex justify-content-between mt-2 align-items-center">
+                <div class="reply px-4"> <span class="dots"></span>  <span class="dots"></span></div>
+                <div class="icons align-items-center"> <i class="fa fa-star text-warning"></i> <i class="fa fa-check-circle-o check-icon"></i> </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form #frm="ngForm" (ngSubmit)="Kaydet2()">
+
+        <!-- icerik input -->
+        <div class="mb-5">
+            <br>
+          <label class="form-label mx-1" for="message"><h3>Yorum yaz</h3></label>
+          <textarea class="form-control" name="icerik2" type="text" placeholder="Konu İçeriği" style="height: 10rem;" [(ngModel)]="secKayit2.icerik2" ></textarea>
+        </div>
+    
+        <!-- Form button -->
+        <div class="mb-5">
+            <input type="submit" value="Kaydet" class="btn btn-primary mx-2" [disabled]="frm.invalid">
+        </div>
+      </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+</div>

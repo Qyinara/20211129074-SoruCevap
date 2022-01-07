@@ -1,0 +1,72 @@
+
+<form #kayitFormu = "ngForm">
+    <section class="gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+    
+                <div class="">
+    
+                  <h2 class="fw-bold mb-2 text-uppercase">Kullanıcı Kayıt</h2>
+                  <p class="text-white-50 mb-5">Aramıza hoş geldiniz!</p>
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typeEmailX">Ad Soyad</label>
+                    <input type="text" name="adsoyad"  class="form-control form-control-lg" #adsoyad="ngModel" [ngClass]="{'is-invalid': adsoyad.invalid && adsoyad.dirty}" [(ngModel)]="secUye.adsoyad" required/>
+                    
+                  </div>
+    
+    
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typePasswordX">E-posta</label>
+                    <input type="mail" name="mail" id="typePasswordX" class="form-control form-control-lg" [ngClass]="{'is-invalid': mail.invalid && mail.dirty}" #mail="ngModel" [(ngModel)]="secUye.mail" required/>
+                    
+                  </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typePasswordX">Şifre</label>
+                    <input type="password" name="parola" id="typePasswordX" class="form-control form-control-lg" #parola="ngModel" [ngClass]="{'is-invalid': parola.invalid && parola.dirty}" [(ngModel)]="secUye.parola" required />
+                    
+                  </div>
+                  <button class="btn btn-outline-light btn-lg px-5 mt-4" type="submit" [disabled]="kayitFormu.invalid" (click)="KayitYap()">Kayıt Ol</button>
+                  <div class="mt-3" [ngClass]="sonuc.islem ? 'alert alert-success': 'alert alert-danger'" *ngIf="sonuc.mesaj?.length">Hatalı deneme</div>
+                </div>
+    
+              
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

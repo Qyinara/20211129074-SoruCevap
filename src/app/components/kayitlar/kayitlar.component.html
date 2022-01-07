@@ -1,0 +1,91 @@
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-md-12">
+            Merhaba <b>{{adsoyad}}</b>
+     </div>
+
+
+
+
+
+
+
+     <div class="container-fluid mt-100">
+        <div class="d-flex flex-wrap justify-content-between">
+            <div> <button type="button" class="btn btn-shadow btn-wide btn-primary" (click)="ekleduzenle=true;"> <span class="btn-icon-wrapper pr-2 opacity-7"> <i class="fa fa-plus fa-w-20"></i> </span>Başlık Ekle</button> </div>
+            <div class="col-12 col-md-3 p-0 mb-3"> <input type="text" class="form-control" placeholder="Search..."> </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header pl-0 pr-0">
+                <div class="row no-gutters w-100 align-items-center">
+                    <div class="col ml-3">Konu Başlıkları</div>
+                    <div class="col-4 text-muted">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-4">Yanıtlar</div>
+                            <div class="col-8">Son Güncelleme</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body py-3" *ngFor="let kayit of kayitlar">
+                <div class="row no-gutters align-items-center">
+                    <div class="col"> <a [routerLink]="['/detay',kayit.key]" class="text-big" data-abc="true">{{kayit.baslik}}</a>
+                        <div class="text-muted small mt-1">{{kayit.kayTarih | date:'dd.MM.yyyy HH:mm'}}</div>
+                    </div>
+                    <div class="d-none d-md-block col-4">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-4"><p>
+                                <span class="badge badge-pill bg-success text-white" *ngIf="kayit.islem">Yanıtlandı</span>
+                                <span class="badge badge-pill bg-danger text-white" *ngIf="!kayit.islem">Bekliyor</span>
+                            </p></div>
+                            <div class="media col-8 align-items-center"> <img src="assets/images.png" width="60" height="60" alt="" class="d-block ui-w-30 rounded-circle">
+                                <div class="media-body flex-truncate ml-2">
+                                    <div class="line-height-1 text-truncate"></div> <a href="javascript:void(0)" class="text-muted small text-truncate" data-abc="true">by {{adsoyad}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+            
+
+
+
+
+
+
+
+<br>
+<div class="container-py4" *ngIf="ekleduzenle">
+<form #frm="ngForm" (ngSubmit)="Kaydet()">
+
+    <!-- baslik input -->
+    <div class="mb-3">
+      <label class="form-label mx-1" for="name">Konu Başlığı:</label>
+      <input class="form-control" name="baslik" type="text" placeholder="Konu Başlığı"  [(ngModel)]="secKayit.baslik" />
+      <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+    </div>
+
+
+    <!-- icerik input -->
+    <div class="mb-3">
+      <label class="form-label mx-1" for="message">Konu İçeriği:</label>
+      <textarea class="form-control" name="icerik" type="text" placeholder="Konu İçeriği" style="height: 10rem;" [(ngModel)]="secKayit.icerik" ></textarea>
+     
+    </div>
+
+    <!-- Form button -->
+    <div class="">
+        <input type="submit" value="Kaydet" class="btn btn-primary mx-2" [disabled]="frm.invalid">
+        <button class="btn btn-outline-danger mx-1" (click)="ekleduzenle=false;">Vazgeç</button>
+      
+    </div>
+
+  </form>
+
+</div>
+</div>
+
+    <br><br><br><br><br>
